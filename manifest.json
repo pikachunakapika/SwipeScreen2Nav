@@ -1,0 +1,16 @@
+{
+  "content_scripts": [
+    {
+      "js": [
+        "jquery-3.4.1.js",
+        "jquery.mousewheel.js",
+        "swipe2nav.js"
+      ],
+      "matches": ["*://*/*"]
+    }
+  ],
+  "description": "Add one finger swipe on screen for navigating browser history.",
+  "name": "SwipeScreenToNavigate",
+  "version": "0.1.0",
+  "manifest_version": 2
+}
