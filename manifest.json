@@ -1,4 +1,10 @@
 {
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pikachunakapika@github.com",
+      "strict_min_version": "55.0"
+    }
+  },
   "content_scripts": [
     {
       "js": [
