@@ -141,6 +141,10 @@
         }
       }
 
+      reset();
+    }
+
+    function reset() {
       swipeState = STATE_NONE;
       startX = 0;
       startY = 0;
@@ -163,6 +167,12 @@
       if (!(swipeState & STATE_DOWN))
         return;
 
+      
+      if (event.changedTouches.length > 1) {
+        reset();
+        return;
+      }
+
       if (event.originalEvent.touches) {
         event = event.originalEvent.touches[0];
       }
@@ -177,6 +187,8 @@
         swipeState |= STATE_HORZ;
         if (Math.abs(swipeOffsetX) > options.swipeActionThreshold) {
           swipeState |= STATE_HORZ_ACTION;
+        } else {
+          swipeState &= ~STATE_HORZ_ACTION; 
         }
       }
 
@@ -184,6 +196,8 @@
         swipeState |= STATE_VERT;
         if (Math.abs(swipeOffsetY) > options.swipeActionThreshold) {
           swipeState |= STATE_VERT_ACTION;
+        } else {
+          swipeState &= ~STATE_VERT_ACTION;
         }
       }
 
